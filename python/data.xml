@@ -1,0 +1,9 @@
+<root color="blue" a="b">pqrs
+    <a d="10">10</a>after a
+    <a>hello
+        <b>90</b>
+    </a>
+    <map>india</map>
+    <map attr1="1" attr2="2">india</map>
+    <d>delete this</d>
+<map attr1="1" attr2="2" age="20">india</map></root>

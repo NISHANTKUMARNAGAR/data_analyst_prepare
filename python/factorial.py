@@ -1,0 +1,22 @@
+#without recursion
+'''def fact(n):
+    if(n==0 or n==1):
+        return 1
+    a=1
+    while(n>0):
+        a=a*n
+        n=n-1
+    return a
+
+n=int(input())
+print(fact(n))'''
+
+#with recursion
+'''def fact(n):
+    if(n==0 or n==1):
+        return 1
+    else:
+        return n*fact(n-1)
+
+n=int(input())
+print(fact(n))'''
