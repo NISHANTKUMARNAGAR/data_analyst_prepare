@@ -1,0 +1,1213 @@
+1. ARRAY CREATION
+────────────────────────────────────────────────────────────────────────────
+
+I. np.array — np.array(object, dtype=None)
+              — object → input data | dtype → desired data type
+              — Creates a NumPy array.
+
+II. np.arange — np.arange(start, stop, step=1, dtype=None)
+                — start → first value | stop → end (excluded) | step → increment | dtype → data type
+                — Creates evenly spaced values using a fixed step.
+
+III. np.linspace — np.linspace(start, stop, num=50, endpoint=True, dtype=None)
+                   — start → first value | stop → last value | num → number of values | endpoint → include stop or not | dtype → data type
+                   — Creates evenly spaced values by specifying the number of values.
+
+IV. np.logspace — np.logspace(start, stop, num=50, base=10)
+                  — start → starting exponent | stop → ending exponent | num → number of values | base → logarithm base
+                  — Creates logarithmically spaced values.
+
+V. np.zeros — np.zeros(shape, dtype=float)
+              — shape → array dimensions | dtype → data type
+              — Creates an array filled with zeros.
+
+VI. np.ones — np.ones(shape, dtype=float)
+             — shape → array dimensions | dtype → data type
+             — Creates an array filled with ones.
+
+VII. np.empty — np.empty(shape, dtype=float)
+                — shape → array dimensions | dtype → data type
+                — Creates an uninitialized array.
+
+VIII. np.full — np.full(shape, fill_value, dtype=None)
+                — shape → array dimensions | fill_value → value to fill | dtype → data type
+                — Creates an array filled with a specified value.
+
+IX. np.eye — np.eye(N, M=None, k=0, dtype=float)
+             — N → rows | M → columns | k → diagonal offset | dtype → data type
+             — Creates an identity-like matrix.
+
+X. np.identity — np.identity(n, dtype=float)
+                 — n → size of square matrix | dtype → data type
+                 — Creates a square identity matrix.
+
+XI. np.tri — np.tri(N, M=None, k=0, dtype=float)
+             — N → rows | M → columns | k → diagonal offset
+             — Creates a lower triangular matrix.
+
+XII. np.triu — np.triu(array, k=0)
+               — array → input array | k → diagonal offset
+               — Returns the upper triangular part of an array.
+
+XIII. np.tril — np.tril(array, k=0)
+                — array → input array | k → diagonal offset
+                — Returns the lower triangular part of an array.
+
+XIV. np.zeros_like — np.zeros_like(array, dtype=None)
+                     — array → reference array | dtype → override data type (optional)
+                     — Creates a zero-filled array with the same shape.
+
+XV. np.empty_like — np.empty_like(array, dtype=None)
+                    — array → reference array | dtype → override data type (optional)
+                    — Creates an uninitialized array with the same shape.
+
+
+2. ARRAY INFORMATION / INSPECTION
+────────────────────────────────────────────────────────────────────────────
+
+I. array.shape — array.shape
+                — No parameters
+                — Returns the dimensions of the array.
+
+II. array.size — array.size
+                 — No parameters
+                 — Returns the total number of elements.
+
+III. array.ndim — array.ndim
+                  — No parameters
+                  — Returns the number of dimensions.
+
+IV. array.dtype — array.dtype
+                  — No parameters
+                  — Returns the data type of the array.
+
+V. array.itemsize — array.itemsize
+                    — No parameters
+                    — Returns the size (in bytes) of one element.
+
+VI. array.nbytes — array.nbytes
+                   — No parameters
+                   — Returns total memory occupied by the array.
+
+VII. array.real — array.real
+                  — No parameters
+                  — Returns the real part of a complex array.
+
+VIII. array.imag — array.imag
+                   — No parameters
+                   — Returns the imaginary part of a complex array.
+
+IX. array.flags — array.flags
+                  — writable → whether the array can be modified
+                  — Returns memory/layout information of the array.
+
+X. np.__version__ — np.__version__
+                    — No parameters
+                    — Returns the installed NumPy version.
+
+XI. np.show_config — np.show_config()
+                     — No parameters
+                     — Displays NumPy build configuration.
+
+XII. np.info — np.info(object)
+               — object → NumPy function/class/module
+               — Displays documentation for a NumPy object.
+               
+3. INDEXING, SLICING & SELECTION
+────────────────────────────────────────────────────────────────────────────
+
+I. Basic Indexing — arr[index]
+                   — index → integer index
+                   — Accesses a single element.
+
+II. Basic Slicing — arr[start:stop:step]
+                   — start → starting index | stop → ending index (excluded) | step → increment
+                   — Returns a slice of the array.
+
+III. 2D Indexing — arr[row, column]
+                  — row → row index | column → column index
+                  — Accesses an element from a 2D array.
+
+IV. 2D Slicing — arr[row_slice, column_slice]
+                — row_slice → rows to select | column_slice → columns to select
+                — Returns a sliced sub-array.
+
+V. Fancy Indexing — arr[[indices]]
+                   — indices → list/array of indices
+                   — Selects multiple elements using integer indices.
+
+VI. Fancy 2D Indexing — arr[row_indices, column_indices]
+                        — row_indices → rows | column_indices → columns
+                        — Selects multiple elements from specific positions.
+
+VII. Boolean Indexing — arr[mask]
+                        — mask → Boolean array
+                        — Filters elements satisfying a condition.
+
+VIII. Boolean Masking — arr[arr > value]
+                        — condition → Boolean expression
+                        — Returns elements satisfying the condition.
+
+IX. np.where — np.where(condition)
+               — condition → Boolean expression
+               — Returns indices where the condition is True.
+
+X. np.where — np.where(condition, x, y)
+              — condition → Boolean expression | x → True value | y → False value
+              — Selects values depending on the condition.
+
+XI. np.take — np.take(arr, indices, axis=None)
+              — indices → positions to select | axis → dimension
+              — Selects elements along an axis.
+
+XII. np.put — np.put(arr, indices, values)
+              — indices → positions to replace | values → replacement values
+              — Replaces elements at specified positions.
+
+XIII. np.delete — np.delete(arr, obj, axis=None)
+                  — obj → index/indices | axis → dimension
+                  — Deletes elements, rows or columns.
+
+XIV. np.insert — np.insert(arr, obj, values, axis=None)
+                 — obj → insertion index | values → values to insert | axis → dimension
+                 — Inserts values before the specified position.
+
+XV. Ellipsis (...) — arr[..., index]
+                     — ... → all remaining dimensions
+                     — Selects across multiple dimensions without specifying every axis.
+
+XVI. Colon (:) — arr[:]
+                 — : → entire axis
+                 — Selects all elements of an axis.
+
+XVII. array.flat — arr.flat
+                   — No parameters
+                   — Returns a flat iterator over the array.
+
+XVIII. array.item — arr.item(index)
+                    — index → element position (optional)
+                    — Returns a Python scalar from the array.
+
+XIX. np.newaxis / None — arr[:, np.newaxis]
+                         — position → where to insert new dimension
+                         — Adds a new axis of length 1.
+
+XX. np.expand_dims — np.expand_dims(arr, axis)
+                     — axis → position of new axis
+                     — Inserts a new dimension.
+
+XXI. np.squeeze — np.squeeze(arr, axis=None)
+                  — axis → removable dimension (optional)
+                  — Removes dimensions of size 1.
+
+XXII. np.atleast_1d — np.atleast_1d(arr)
+                      — arr → input array
+                      — Converts input to at least 1D.
+
+XXIII. np.atleast_3d — np.atleast_3d(arr)
+                       — arr → input array
+                       — Converts input to at least 3D.
+
+XXIV. np.moveaxis — np.moveaxis(arr, source, destination)
+                    — source → original axis | destination → new axis
+                    — Moves an axis to a new position.
+
+XXV. np.swapaxes — np.swapaxes(arr, axis1, axis2)
+                   — axis1 → first axis | axis2 → second axis
+                   — Swaps two axes.
+
+XXVI. np.transpose — np.transpose(arr, axes=None)
+                     — axes → desired order (optional)
+                     — Permutes array axes.
+
+XXVII. array.T — arr.T
+                 — No parameters
+                 — Returns the transpose of an array.
+
+XXVIII. np.diag — np.diag(arr, k=0)
+                  — k → diagonal offset
+                  — Extracts or creates a diagonal.
+
+XXIX. np.diagonal — np.diagonal(arr, offset=0, axis1=0, axis2=1)
+                    — offset → diagonal | axis1, axis2 → axes
+                    — Returns the specified diagonal.
+
+XXX. np.triu_indices — np.triu_indices(n, k=0)
+                       — n → matrix size | k → diagonal offset
+                       — Returns indices of the upper triangle.
+                       
+4. RESHAPING & DIMENSION MANIPULATION
+────────────────────────────────────────────────────────────────────────────
+
+I. array.reshape — arr.reshape(shape)
+                   — shape → desired dimensions
+                   — Changes the shape without changing the data.
+
+II. np.reshape — np.reshape(arr, shape)
+                 — arr → input array | shape → desired dimensions
+                 — Returns a reshaped array.
+
+III. array.ravel — arr.ravel(order='C')
+                   — order → 'C', 'F', 'A', 'K'
+                   — Returns a flattened view whenever possible.
+
+IV. array.flatten — arr.flatten(order='C')
+                    — order → 'C', 'F', 'A', 'K'
+                    — Returns a flattened copy.
+
+V. np.resize — np.resize(arr, shape)
+               — arr → input array | shape → new dimensions
+               — Resizes array by repeating/truncating elements.
+
+VI. array.resize — arr.resize(shape)
+                   — shape → new dimensions
+                   — Resizes the array in-place.
+
+VII. np.expand_dims — np.expand_dims(arr, axis)
+                      — axis → position of new axis
+                      — Inserts a dimension of size 1.
+
+VIII. np.squeeze — np.squeeze(arr, axis=None)
+                   — axis → removable axis (optional)
+                   — Removes dimensions of size 1.
+
+IX. np.newaxis / None — arr[:, np.newaxis]
+                        — position → location of new axis
+                        — Adds a new dimension.
+
+X. np.atleast_1d — np.atleast_1d(arr)
+                   — arr → input array
+                   — Converts input to at least 1D.
+
+XI. np.atleast_3d — np.atleast_3d(arr)
+                    — arr → input array
+                    — Converts input to at least 3D.
+
+
+5. AXIS MANIPULATION
+────────────────────────────────────────────────────────────────────────────
+
+I. array.T — arr.T
+             — No parameters
+             — Returns the transpose.
+
+II. np.transpose — np.transpose(arr, axes=None)
+                   — axes → desired order (optional)
+                   — Permutes array axes.
+
+III. np.swapaxes — np.swapaxes(arr, axis1, axis2)
+                   — axis1 → first axis | axis2 → second axis
+                   — Swaps two axes.
+
+IV. np.moveaxis — np.moveaxis(arr, source, destination)
+                  — source → original axis | destination → new axis
+                  — Moves an axis to a new position.
+
+
+6. JOINING ARRAYS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.concatenate — np.concatenate((a1, a2), axis=0)
+                    — arrays → arrays to join | axis → joining axis
+                    — Joins arrays along an existing axis.
+
+II. np.hstack — np.hstack((a1, a2))
+                — arrays → arrays to stack
+                — Stacks arrays horizontally.
+
+III. np.vstack — np.vstack((a1, a2))
+                 — arrays → arrays to stack
+                 — Stacks arrays vertically.
+
+IV. np.column_stack — np.column_stack((a1, a2))
+                      — arrays → arrays to stack
+                      — Stacks arrays as columns.
+
+V. np.row_stack — np.row_stack((a1, a2))
+                  — arrays → arrays to stack
+                  — Stacks arrays as rows.
+
+VI. np.dstack — np.dstack((a1, a2))
+                — arrays → arrays to stack
+                — Stacks arrays depth-wise.
+
+VII. np.append — np.append(arr, values, axis=None)
+                 — values → values to append | axis → append axis
+                 — Appends values to an array.
+
+
+7. SPLITTING ARRAYS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.split — np.split(arr, indices_or_sections, axis=0)
+              — indices_or_sections → split positions/count | axis → split axis
+              — Splits an array into multiple sub-arrays.
+
+II. np.hsplit — np.hsplit(arr, indices_or_sections)
+                — indices_or_sections → split positions/count
+                — Splits an array column-wise.
+
+III. np.vsplit — np.vsplit(arr, indices_or_sections)
+                 — indices_or_sections → split positions/count
+                 — Splits an array row-wise.
+
+IV. np.dsplit — np.dsplit(arr, indices_or_sections)
+                — indices_or_sections → split positions/count
+                — Splits an array depth-wise.
+                
+8. BROADCASTING
+────────────────────────────────────────────────────────────────────────────
+
+I. Broadcasting — Automatic expansion of dimensions
+                — Arrays must satisfy broadcasting rules.
+                — Performs element-wise operations on arrays of different shapes.
+
+II. np.newaxis / None — arr[:, np.newaxis]
+                        — axis position → location to insert new dimension
+                        — Adds a dimension to enable broadcasting.
+
+III. np.expand_dims — np.expand_dims(arr, axis)
+                      — axis → position of new dimension
+                      — Adds a new axis for broadcasting.
+
+IV. np.broadcast_to — np.broadcast_to(arr, shape)
+                      — shape → target broadcasted shape
+                      — Broadcasts an array to a specified shape (read-only).
+
+
+9. MATHEMATICAL OPERATIONS
+────────────────────────────────────────────────────────────────────────────
+
+I. + — arr1 + arr2
+      — Arrays must be broadcast compatible.
+      — Performs element-wise addition.
+
+II. - — arr1 - arr2
+       — Arrays must be broadcast compatible.
+       — Performs element-wise subtraction.
+
+III. * — arr1 * arr2
+        — Arrays must be broadcast compatible.
+        — Performs element-wise multiplication.
+
+IV. / — arr1 / arr2
+       — Arrays must be broadcast compatible.
+       — Performs element-wise division.
+
+V. np.sqrt — np.sqrt(arr)
+             — arr → input array
+             — Computes square root element-wise.
+
+VI. np.square — np.square(arr)
+                — arr → input array
+                — Squares each element.
+
+VII. np.exp — np.exp(arr)
+              — arr → input array
+              — Computes eˣ for every element.
+
+VIII. np.log — np.log(arr)
+               — arr → input array
+               — Computes the natural logarithm.
+
+IX. np.floor — np.floor(arr)
+               — arr → input array
+               — Rounds down to the nearest integer.
+
+X. np.ceil — np.ceil(arr)
+             — arr → input array
+             — Rounds up to the nearest integer.
+
+XI. np.rint — np.rint(arr)
+              — arr → input array
+              — Rounds to the nearest integer.
+
+XII. np.round — np.round(arr, decimals=0)
+                — decimals → number of decimal places
+                — Rounds values to specified decimals.
+
+XIII. np.clip — np.clip(arr, min, max)
+                — min → lower limit | max → upper limit
+                — Limits values to a specified range.
+
+XIV. array.prod — arr.prod(axis=None)
+                  — axis → dimension (optional)
+                  — Returns the product of array elements.
+
+
+10. STATISTICS
+────────────────────────────────────────────────────────────────────────────
+
+I. array.sum — arr.sum(axis=None, keepdims=False)
+               — axis → reduction axis | keepdims → preserve dimensions
+               — Computes the sum.
+
+II. array.mean — arr.mean(axis=None, keepdims=False)
+                 — axis → reduction axis | keepdims → preserve dimensions
+                 — Computes the arithmetic mean.
+
+III. np.average — np.average(arr, axis=None, weights=None)
+                  — axis → reduction axis | weights → weighted average
+                  — Computes the weighted/unweighted average.
+
+IV. array.min — arr.min(axis=None)
+                — axis → reduction axis
+                — Returns the minimum value.
+
+V. array.max — arr.max(axis=None)
+                — axis → reduction axis
+                — Returns the maximum value.
+
+VI. array.var — arr.var(axis=None)
+                — axis → reduction axis
+                — Computes the variance.
+
+VII. array.std — arr.std(axis=None)
+                 — axis → reduction axis
+                 — Computes the standard deviation.
+
+VIII. np.percentile — np.percentile(arr, q, axis=None)
+                      — q → percentile | axis → reduction axis
+                      — Computes the specified percentile.
+
+IX. np.cov — np.cov(x, y=None)
+             — x, y → input variables
+             — Computes the covariance matrix.
+
+X. np.corrcoef — np.corrcoef(x, y=None)
+                 — x, y → input variables
+                 — Computes the Pearson correlation coefficient matrix.
+
+XI. np.nanmean — np.nanmean(arr, axis=None)
+                 — axis → reduction axis
+                 — Computes the mean ignoring NaN values.
+
+XII. np.nansum — np.nansum(arr, axis=None)
+                 — axis → reduction axis
+                 — Computes the sum ignoring NaN values.
+
+XIII. np.nanmin — np.nanmin(arr, axis=None)
+                  — axis → reduction axis
+                  — Returns the minimum ignoring NaN values.
+
+XIV. np.nanmax — np.nanmax(arr, axis=None)
+                 — axis → reduction axis
+                 — Returns the maximum ignoring NaN values.
+                 
+11. CONDITIONAL SELECTION & COMPARISON
+────────────────────────────────────────────────────────────────────────────
+
+I. np.where — np.where(condition)
+              — condition → Boolean condition
+              — Returns indices where the condition is True.
+
+II. np.where — np.where(condition, x, y)
+               — condition → Boolean condition | x → True values | y → False values
+               — Returns values based on the condition.
+
+III. np.any — np.any(arr, axis=None)
+              — axis → reduction axis
+              — Returns True if at least one element is True.
+
+IV. np.all — np.all(arr, axis=None)
+             — axis → reduction axis
+             — Returns True if all elements are True.
+
+V. np.equal — np.equal(a, b)
+              — a, b → arrays/scalars
+              — Performs element-wise equality comparison.
+
+VI. np.array_equal — np.array_equal(a, b)
+                     — a, b → arrays
+                     — Checks whether two arrays are exactly equal.
+
+VII. np.allclose — np.allclose(a, b, rtol=..., atol=...)
+                   — rtol → relative tolerance | atol → absolute tolerance
+                   — Checks whether arrays are approximately equal.
+
+VIII. np.greater — np.greater(a, b)
+                   — a, b → arrays/scalars
+                   — Element-wise greater-than comparison.
+
+IX. np.greater_equal — np.greater_equal(a, b)
+                       — a, b → arrays/scalars
+                       — Element-wise greater-than-or-equal comparison.
+
+X. np.less — np.less(a, b)
+              — a, b → arrays/scalars
+              — Element-wise less-than comparison.
+
+XI. np.less_equal — np.less_equal(a, b)
+                    — a, b → arrays/scalars
+                    — Element-wise less-than-or-equal comparison.
+
+XII. np.isnan — np.isnan(arr)
+                — arr → input array
+                — Checks for NaN values.
+
+XIII. np.isfinite — np.isfinite(arr)
+                    — arr → input array
+                    — Checks for finite values.
+
+XIV. np.isposinf — np.isposinf(arr)
+                   — arr → input array
+                   — Checks for positive infinity.
+
+XV. np.isneginf — np.isneginf(arr)
+                  — arr → input array
+                  — Checks for negative infinity.
+
+XVI. np.isreal — np.isreal(arr)
+                 — arr → input array
+                 — Checks whether values are real.
+
+XVII. np.iscomplex — np.iscomplex(arr)
+                     — arr → input array
+                     — Checks whether values are complex.
+
+XVIII. np.isscalar — np.isscalar(x)
+                     — x → object
+                     — Checks whether an object is a scalar.
+
+
+12. SORTING & RANKING
+────────────────────────────────────────────────────────────────────────────
+
+I. np.sort — np.sort(arr, axis=-1)
+             — axis → sorting axis
+             — Returns a sorted copy.
+
+II. array.sort — arr.sort(axis=-1)
+                 — axis → sorting axis
+                 — Sorts the array in-place.
+
+III. np.argsort — np.argsort(arr, axis=-1)
+                  — axis → sorting axis
+                  — Returns indices that would sort the array.
+
+IV. np.partition — np.partition(arr, kth, axis=-1)
+                   — kth → partition index | axis → partition axis
+                   — Partially sorts the array.
+
+V. np.argpartition — np.argpartition(arr, kth, axis=-1)
+                     — kth → partition index | axis → partition axis
+                     — Returns indices of a partial sort.
+
+VI. np.argmax — np.argmax(arr, axis=None)
+                — axis → search axis
+                — Returns the index of the maximum value.
+
+VII. np.argmin — np.argmin(arr, axis=None)
+                 — axis → search axis
+                 — Returns the index of the minimum value.
+
+VIII. np.lexsort — np.lexsort(keys)
+                   — keys → sorting keys
+                   — Performs an indirect lexicographical sort.
+
+IX. np.sort_complex — np.sort_complex(arr)
+                      — arr → complex array
+                      — Sorts complex numbers.
+
+X. np.unique — np.unique(arr, return_index=False, return_counts=False)
+               — return_index → original indices | return_counts → frequency
+               — Returns unique values and optional information.
+
+
+13. SET OPERATIONS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.isin — np.isin(elements, test_elements)
+             — elements → input array | test_elements → values to search
+             — Checks membership element-wise.
+
+II. np.union1d — np.union1d(arr1, arr2)
+                 — arr1, arr2 → input arrays
+                 — Returns the union of two arrays.
+
+III. np.setdiff1d — np.setdiff1d(arr1, arr2)
+                    — arr1, arr2 → input arrays
+                    — Returns values present only in the first array.
+
+IV. np.setxor1d — np.setxor1d(arr1, arr2)
+                  — arr1, arr2 → input arrays
+                  — Returns the symmetric difference.
+
+V. np.intersect1d — np.intersect1d(arr1, arr2)
+                    — arr1, arr2 → input arrays
+                    — Returns the common elements of two arrays.
+
+
+14. REPEATING & PATTERN GENERATION
+────────────────────────────────────────────────────────────────────────────
+
+I. np.repeat — np.repeat(arr, repeats, axis=None)
+               — repeats → number of repetitions | axis → repetition axis
+               — Repeats individual elements.
+
+II. np.tile — np.tile(arr, reps)
+              — reps → repetition pattern
+              — Repeats the entire array.
+
+III. np.meshgrid — np.meshgrid(*arrays)
+                   — arrays → coordinate vectors
+                   — Creates coordinate grids from coordinate vectors.
+                   
+15. RANDOM MODULE
+────────────────────────────────────────────────────────────────────────────
+
+I. np.random.randint — np.random.randint(low, high=None, size=None, dtype=int)
+                       — low → minimum value | high → maximum value (excluded) | size → output shape
+                       — Generates random integers.
+
+II. np.random.random — np.random.random(size=None)
+                       — size → output shape
+                       — Generates random floats in [0.0, 1.0).
+
+III. np.random.uniform — np.random.uniform(low=0.0, high=1.0, size=None)
+                         — low → minimum | high → maximum | size → output shape
+                         — Generates uniformly distributed random numbers.
+
+IV. np.random.normal — np.random.normal(loc=0.0, scale=1.0, size=None)
+                       — loc → mean | scale → standard deviation | size → output shape
+                       — Generates normally distributed random numbers.
+
+V. np.random.choice — np.random.choice(a, size=None, replace=True, p=None)
+                      — a → source array/range | size → output size | replace → sampling with/without replacement | p → probabilities
+                      — Selects random values.
+
+VI. np.random.shuffle — np.random.shuffle(arr)
+                        — arr → input array
+                        — Shuffles an array in-place.
+
+
+16. ITERATION
+────────────────────────────────────────────────────────────────────────────
+
+I. np.nditer — np.nditer(arr, flags=None, op_flags=None, order='C')
+               — flags → iteration flags | op_flags → read/write flags | order → C/F iteration
+               — Iterates efficiently over array elements.
+
+II. external_loop — flags=['external_loop']
+                    — Used with np.nditer
+                    — Returns chunks instead of individual elements.
+
+III. order='C'
+               — Row-major iteration
+               — Iterates row by row.
+
+IV. order='F'
+              — Column-major iteration
+              — Iterates column by column.
+
+
+17. LINEAR ALGEBRA
+────────────────────────────────────────────────────────────────────────────
+
+I. np.dot — np.dot(a, b)
+            — a, b → vectors/matrices
+            — Computes dot product or matrix multiplication.
+
+II. np.cross — np.cross(a, b)
+               — a, b → vectors
+               — Computes cross product.
+
+III. np.linalg.det — np.linalg.det(A)
+                     — A → square matrix
+                     — Computes determinant.
+
+IV. np.linalg.inv — np.linalg.inv(A)
+                    — A → square matrix
+                    — Computes inverse matrix.
+
+V. np.linalg.eig — np.linalg.eig(A)
+                   — A → square matrix
+                   — Returns eigenvalues and eigenvectors.
+
+VI. np.linalg.norm — np.linalg.norm(x, ord=None, axis=None)
+                     — ord → norm type | axis → computation axis
+                     — Computes vector or matrix norm.
+
+
+18. DIAGONALS & TRIANGULAR MATRICES
+────────────────────────────────────────────────────────────────────────────
+
+I. np.diag — np.diag(v, k=0)
+             — v → array | k → diagonal offset
+             — Extracts or creates a diagonal.
+
+II. np.diagonal — np.diagonal(arr, offset=0, axis1=0, axis2=1)
+                  — offset → diagonal | axis1, axis2 → axes
+                  — Returns the specified diagonal.
+
+III. np.triu — np.triu(arr, k=0)
+               — arr → input array | k → diagonal offset
+               — Returns upper triangular portion.
+
+IV. np.tril — np.tril(arr, k=0)
+              — arr → input array | k → diagonal offset
+              — Returns lower triangular portion.
+
+V. np.triu_indices — np.triu_indices(n, k=0)
+                     — n → matrix size | k → diagonal offset
+                     — Returns upper-triangular indices.
+
+
+19. STRUCTURED ARRAYS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.dtype — np.dtype([...])
+              — field names | field data types
+              — Creates a structured data type.
+
+II. Structured Array — np.array(data, dtype=dtype)
+                       — data → records | dtype → structured dtype
+                       — Creates an array with named fields.
+
+III. Field Access — arr['field_name']
+                    — field_name → field to access
+                    — Returns one field from the structured array.
+
+IV. Multiple Fields — arr[['field1','field2']]
+                      — field names → fields to retrieve
+                      — Returns selected fields.
+                      
+20. FILE INPUT / OUTPUT
+────────────────────────────────────────────────────────────────────────────
+
+I. np.save — np.save(file, arr)
+             — file → filename | arr → array to save
+             — Saves an array in NumPy binary (.npy) format.
+
+II. np.load — np.load(file)
+              — file → .npy/.npz file
+              — Loads an array from a NumPy binary file.
+
+III. np.savetxt — np.savetxt(file, arr, delimiter=' ', fmt='%s')
+                  — file → filename | delimiter → separator | fmt → output format
+                  — Saves an array to a text/CSV file.
+
+IV. np.loadtxt — np.loadtxt(file, delimiter=' ')
+                 — file → filename | delimiter → separator
+                 — Loads data from a text/CSV file.
+
+V. np.genfromtxt — np.genfromtxt(file, delimiter=',', skip_header=0)
+                   — delimiter → separator | skip_header → rows to ignore
+                   — Loads text/CSV data while handling missing values.
+
+VI. array.tobytes — arr.tobytes(order='C')
+                    — order → memory order
+                    — Converts an array into raw bytes.
+
+VII. np.frombuffer — np.frombuffer(buffer, dtype)
+                     — buffer → byte object | dtype → element type
+                     — Creates an array from a buffer.
+
+VIII. array.tolist — arr.tolist()
+                     — No parameters
+                     — Converts an array into nested Python lists.
+
+IX. array.item — arr.item(index=None)
+                 — index → element position (optional)
+                 — Returns a Python scalar from one array element.
+
+X. np.fromiter — np.fromiter(iterable, dtype)
+                 — iterable → input iterator | dtype → data type
+                 — Creates an array from an iterator.
+
+
+21. PRINTING & DISPLAY
+────────────────────────────────────────────────────────────────────────────
+
+I. np.set_printoptions — np.set_printoptions(...)
+                         — precision | suppress | threshold | edgeitems | linewidth
+                         — Changes NumPy array printing behavior.
+
+II. np.array2string — np.array2string(arr, ...)
+                      — formatter | separator | precision
+                      — Converts an array into a formatted string.
+
+III. threshold — np.set_printoptions(threshold=sys.maxsize)
+                 — threshold → maximum printable elements
+                 — Prints the complete array without truncation.
+
+IV. edgeitems — np.set_printoptions(edgeitems=n)
+                — n → number of edge elements
+                — Controls how many edge values are shown when arrays are truncated.
+
+V. precision — np.set_printoptions(precision=n)
+               — n → decimal places
+               — Controls floating-point precision.
+
+VI. suppress — np.set_printoptions(suppress=True)
+               — True/False
+               — Prevents scientific notation for small floating-point values.
+
+VII. linewidth — np.set_printoptions(linewidth=n)
+                 — n → maximum characters per line
+                 — Controls when printed arrays wrap.
+
+
+22. MEMORY LAYOUT
+────────────────────────────────────────────────────────────────────────────
+
+I. order='C'
+             — Row-major order
+             — Stores/iterates row by row.
+
+II. order='F'
+             — Column-major order
+             — Stores/iterates column by column.
+
+III. array.flags — arr.flags
+                   — writable | c_contiguous | f_contiguous
+                   — Displays array memory information.
+
+IV. array.flags.writeable — arr.flags.writeable = False
+                            — True/False
+                            — Makes an array read-only or writable.
+
+
+23. ADVANCED MEMORY / VIEWS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.lib.stride_tricks.as_strided — as_strided(arr, shape, strides)
+                                    — shape → new view | strides → memory step sizes
+                                    — Creates custom views without copying data.
+
+II. np.add.reduceat — np.add.reduceat(arr, indices, axis=0)
+                      — indices → reduction start positions | axis → reduction axis
+                      — Performs segmented reductions efficiently.
+
+III. View
+          — Shares the original array memory.
+          — Modifying one affects the other.
+
+IV. Copy
+         — Owns separate memory.
+         — Changes do not affect the original array.
+         
+
+24. IMAGES
+────────────────────────────────────────────────────────────────────────────
+
+I. Image.open — Image.open(file)
+                — file → image filename/path
+                — Opens an image using Pillow.
+
+II. np.array — np.array(img)
+               — img → Pillow image
+               — Converts an image into a NumPy array.
+
+III. Image.fromarray — Image.fromarray(arr)
+                       — arr → NumPy array
+                       — Converts a NumPy array into an image.
+
+IV. Image.save — img.save(file)
+                 — file → output filename/path
+                 — Saves the image to disk.
+
+
+25. MESH & COORDINATE GRIDS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.meshgrid — np.meshgrid(*arrays, indexing='xy')
+                 — arrays → coordinate vectors | indexing → grid type
+                 — Creates coordinate grids from coordinate vectors.
+
+II. np.indices — np.indices(dimensions)
+                 — dimensions → array shape
+                 — Returns index grids for every dimension.
+
+
+26. BIT OPERATIONS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.unpackbits — np.unpackbits(arr, axis=None)
+                   — arr → uint8 array | axis → unpack axis
+                   — Converts integers into binary bits.
+
+II. np.packbits — np.packbits(arr, axis=None)
+                  — arr → binary array | axis → packing axis
+                  — Packs binary bits into uint8 integers.
+
+
+27. DISTANCE
+────────────────────────────────────────────────────────────────────────────
+
+I. distance.euclidean — distance.euclidean(p1, p2)
+                        — p1 → first point | p2 → second point
+                        — Computes Euclidean distance between two points.
+
+
+28. MISCELLANEOUS
+────────────────────────────────────────────────────────────────────────────
+
+I. np.pad — np.pad(arr, pad_width, mode='constant')
+            — pad_width → padding size | mode → padding method
+            — Pads an array.
+
+II. np.bincount — np.bincount(arr, weights=None, minlength=0)
+                  — arr → non-negative integers | weights → optional weights | minlength → minimum output length
+                  — Counts occurrences of each integer.
+
+III. np.count_nonzero — np.count_nonzero(arr, axis=None)
+                        — axis → counting axis
+                        — Counts non-zero elements.
+
+IV. np.resize — np.resize(arr, shape)
+                — shape → new dimensions
+                — Resizes by repeating or truncating elements.
+
+V. np.char.startswith — np.char.startswith(arr, prefix)
+                         — prefix → string prefix
+                         — Checks whether each string starts with the given prefix.
+
+
+29. DATA TYPE & TYPE CONVERSION
+────────────────────────────────────────────────────────────────────────────
+
+I. np.dtype — np.dtype(type)
+              — type → desired NumPy data type
+              — Creates or describes a NumPy data type.
+
+II. array.astype — arr.astype(dtype)
+                   — dtype → target data type
+                   — Converts an array to another data type.
+
+III. array.item — arr.item(index=None)
+                  — index → element position (optional)
+                  — Returns a NumPy scalar as a native Python scalar.
+
+IV. array.tolist — arr.tolist()
+                   — No parameters
+                   — Converts an array into nested Python lists.
+
+V. np.fromiter — np.fromiter(iterable, dtype)
+                 — iterable → iterator | dtype → data type
+                 — Creates an array from an iterator.
+
+VI. np.frombuffer — np.frombuffer(buffer, dtype)
+                    — buffer → byte buffer | dtype → data type
+                    — Creates an array from raw bytes.
+
+VII. array.tobytes — arr.tobytes(order='C')
+                     — order → memory order
+                     — Converts an array into raw bytes.
+                     
+ 
+30. IMPORTANT NOTES & COMMONLY CONFUSED CONCEPTS
+────────────────────────────────────────────────────────────────────────────
+
+I. Axis Numbering
+                 — First axis = axis=0 | Second axis = axis=1 | Third axis = axis=2
+                 — Axis numbers always start from 0.
+
+II. Reduction Functions
+                       — sum(), mean(), min(), max(), std(), var(), any(), all(), argmax(), argmin()
+                       — axis=0 → (column-wise result) | axis=1 → (row-wise result).
+
+III. Selection / Modification Functions
+                                       — delete(), insert(), take()
+                                       — axis=0 → rows | axis=1 → columns.
+
+IV. Broadcasting Rule
+                     — Dimensions are compared from the last axis.
+                     — Dimensions must be equal or one of them must be 1.
+
+V. reshape() vs resize()
+                        — reshape() → returns reshaped array without changing data size.
+                        — resize() → can repeat/truncate data to fit new size.
+
+VI. flatten() vs ravel()
+                        — flatten() → always returns a copy.
+                        — ravel() → returns a view whenever possible.
+
+VII. transpose() vs T
+                      — arr.T → shorthand transpose.
+                      — np.transpose() → can reorder any axes.
+
+VIII. View vs Copy
+                  — View → shares memory with original array.
+                  — Copy → independent memory.
+
+IX. np.where()
+               — np.where(condition) → returns indices.
+               — np.where(condition, x, y) → returns selected values.
+
+X. any() vs all()
+                 — any() → at least one True.
+                 — all() → every value must be True.
+
+XI. argmax() / argmin()
+                       — Return indices, not values.
+
+XII. argsort() vs sort()
+                        — sort() → sorted values.
+                        — argsort() → indices that sort the array.
+
+XIII. partition() vs argpartition()
+                                   — partition() → partially sorted values.
+                                   — argpartition() → indices of partial sort.
+
+XIV. diag() vs diagonal()
+                         — diag() → create or extract diagonal.
+                         — diagonal() → only extracts diagonal.
+
+XV. eye() vs identity()
+                        — eye() → rectangular matrix and diagonal offset supported.
+                        — identity() → square identity matrix only.
+
+XVI. repeat() vs tile()
+                        — repeat() → repeats individual elements.
+                        — tile() → repeats the whole array.
+
+XVII. concatenate() vs stack()
+                              — concatenate() → joins along an existing axis.
+                              — stack() → creates a new axis.
+
+XVIII. column_stack() vs hstack()
+                                 — column_stack() → converts 1D arrays into columns.
+                                 — hstack() → simply joins horizontally.
+
+XIX. split() vs hsplit() vs vsplit()
+                                    — split() → any axis.
+                                    — hsplit() → columns.
+                                    — vsplit() → rows.
+
+XX. C Order vs Fortran Order
+                            — C → row-major.
+                            — F → column-major.
+
+XXI. nditer(order='C'/'F')
+                           — Changes iteration order only.
+                           — Does NOT transpose the array.
+
+XXII. nditer(flags=['external_loop'])
+                                     — Returns chunks instead of single elements.
+
+XXIII. None vs np.newaxis
+                          — Both are exactly equivalent.
+
+XXIV. keepdims=True
+                    — Keeps reduced dimensions as size 1.
+                    — Useful for broadcasting.
+
+XXV. np.average()
+                  — Supports weights.
+                  — np.mean() does not.
+
+XXVI. Covariance vs Correlation
+                               — Covariance → do variables move together?
+                               — Correlation → how strongly do they move together? (-1 to 1)
+
+XXVII. Variance vs Standard Deviation
+                                     — Variance = SD².
+                                     — Standard deviation has the same units as the data.
+
+XXVIII. Fancy Indexing vs Boolean Indexing
+                                         — Fancy → integer indices.
+                                         — Boolean → True/False mask.
+
+XXIX. np.array_equal() vs np.equal()
+                                    — array_equal() → one True/False for whole arrays.
+                                    — equal() → element-wise comparison.
+
+XXX. np.isin()
+               — Preferred over deprecated np.in1d().
+
+XXXI. np.nan Functions
+                      — nanmean(), nansum(), nanmin(), nanmax()
+                      — Ignore NaN values during computation.
+
+XXXII. Scientific Notation
+                          — np.set_printoptions(suppress=True)
+                          — Prevents scientific notation for small floats.
+
+XXXIII. threshold=sys.maxsize
+                             — Prints the complete array without truncation.
+
+XXXIV. edgeitems=n
+                  — Controls how many edge elements are shown when arrays are truncated.
+
+XXXV. item()
+             — Converts one NumPy scalar into a native Python type.
+
+XXXVI. tolist()
+               — Converts an entire NumPy array into Python lists.
+
+XXXVII. array.size vs nbytes
+                            — size → total number of elements.
+                            — nbytes → total memory occupied (bytes).
+
+XXXVIII. itemsize
+                 — Memory used by one element (bytes).
+
+XXXIX. meshgrid()
+                 — Used to create coordinate grids for vectorized computation.
+
+XL. Structured Arrays
+                     — Allow different dtypes in different named fields.
+
+XLI. np.linalg.norm()
+                    — Computes Euclidean length by default.
+
+XLII. np.count_nonzero()
+                       — Counts all non-zero elements efficiently.
+
+XLIII. np.bincount()
+                    — Works only with non-negative integer arrays.
+
+XLIV. np.unpackbits()
+                     — Converts uint8 integers into binary bits.
+
+XLV. Image ↔ NumPy
+                  — np.array(Image) → Image to array.
+                  — Image.fromarray(array) → Array to image.
+                  
+
+31. ADDITIONAL USEFUL NOTES
+────────────────────────────────────────────────────────────────────────────
+
+I. array.copy — arr.copy(order='C')
+                — order → memory layout ('C' or 'F')
+                — Creates a deep copy of the array.
+
+II. reshape(-1) — arr.reshape(...)
+                  — -1 → NumPy automatically calculates this dimension.
+                  — Lets NumPy infer one missing dimension.
+
+III. keepdims=True — arr.sum(axis, keepdims=True)
+                     — keepdims → preserves reduced dimensions as size 1
+                     — Useful for broadcasting after reduction.
+
+IV. np.unique (Advanced) — np.unique(arr, return_index=False, return_inverse=False, return_counts=False)
+                           — return_index → first occurrence indices
+                           — return_inverse → indices to reconstruct the original array
+                           — return_counts → frequency of each unique value
+                           — Returns unique values with optional metadata.
+
+V. np.pad (Common Modes) — np.pad(arr, pad_width, mode='constant')
+                           — constant | edge | reflect | wrap
+                           — Pads an array using different boundary methods.
+
+VI. np.linalg.norm (Common Orders) — np.linalg.norm(x, ord=None, axis=None)
+                                    — ord=1 → Manhattan norm
+                                    — ord=2 → Euclidean norm (default for vectors)
+                                    — Computes vector or matrix norms.
+
+VII. np.broadcast_to — np.broadcast_to(arr, shape)
+                       — shape → desired broadcasted shape
+                       — Returns a read-only broadcasted view.
+
+VIII. np.packbits — np.packbits(arr, axis=None)
+                    — axis → packing axis
+                    — Packs binary values into uint8 integers.
+
+IX. np.load (Useful Parameter) — np.load(file, allow_pickle=False)
+                                 — allow_pickle → allow loading pickled objects
+                                 — Loads NumPy binary files.
+
+X. argsort (Sorting Algorithm) — np.argsort(arr, axis=-1, kind='quicksort')
+                                 — kind → sorting algorithm
+                                 — Returns indices that sort the array.

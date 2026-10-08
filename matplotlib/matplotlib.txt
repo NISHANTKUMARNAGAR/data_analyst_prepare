@@ -1,0 +1,6 @@
+matplotlib:-
+
+https://www.w3resource.com/python-exercises/numpy/basic/index.php --- q40
+https://www.w3resource.com/python-exercises/numpy/index-array.php ---- q116,117
+https://www.w3resource.com/python-exercises/numpy/python-numpy-stat-exercise-14.php
+https://www.w3resource.com/python-exercises/pandas/missing-values/index.php --- q20

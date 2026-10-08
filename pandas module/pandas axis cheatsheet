@@ -1,0 +1,38 @@
+(1) axis=0 = COLUMN-WISE (↓)          axis=1 = ROW-WISE (→)
+
+apply()      agg()/aggregate()   transform()   sum()      mean()
+median()     mode()              min()         max()      prod()
+count()      size()              std()         var()      sem()
+skew()       kurt()              any()         all()      nunique()
+idxmax()     idxmin()            cumsum()      cumprod()
+cummax()     cummin()            rank()        diff()
+pct_change() corrwith()          describe()
+--------------------------------------------------------------------
+(2) axis=0 = ROWS                 axis=1 = COLUMNS
+
+drop()       dropna()       rename()      reindex()
+filter()     set_axis()     take()        sample()
+--------------------------------------------------------------------
+concat()     axis=0→stack rows     axis=1→join columns
+join()       axis=0 N/A            axis=1→join by index
+merge()      axis NOT USED (uses keys/on/left_on/right_on)
+groupby()    axis deprecated (group rows by keys)
+pivot()      axis NOT USED
+pivot_table()axis NOT USED
+melt()       axis NOT USED
+stack()      columns → index
+unstack()    index → columns
+explode()    axis NOT USED
+combine_first() axis NOT USED
+update()     axis NOT USED
+--------------------------------------------------------------------
+EXCEPTIONS (operate ON the axis)
+axis=0 → rows
+axis=1 → columns
+
+drop() dropna() rename() reindex() filter()
+set_axis() take() sample()
+
+concat():  axis=0 → rows  axis=1 → columns
+stack():   columns → rows(index)
+unstack(): rows(index) → columns
