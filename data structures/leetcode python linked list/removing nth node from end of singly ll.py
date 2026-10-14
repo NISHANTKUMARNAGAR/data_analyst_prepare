@@ -39,3 +39,50 @@ class Solution:
                     prevtemp=prevtemp.next
                     temp=temp.next
 """
+
+#removing node at pos location from start
+"""class ListNode:
+    def __init__(self,val=0,next=None):
+        self.val=val
+        self.next=next
+
+a=ListNode(10)
+b=ListNode(20)
+c=ListNode(30)
+d=ListNode(40)
+e=ListNode(50)
+
+head=a
+a.next=b
+b.next=c
+c.next=d
+d.next=e
+
+l = [10, 20, 30, 40, 50]
+pos = 2
+#remove node at pos 2 with 0 based indexing
+#Output: [10, 20, 40, 50]
+
+curr=head
+prev=None
+n=0
+if head is not None: #it's not an empty list
+    while curr:
+        if pos==0: #if want to remove head
+            temp=curr.next
+            curr.next=None
+            head=temp
+        if n==pos and n!=0: #remove node at pos in 0 based indexing
+            temp=curr.next
+            curr.next=None
+            curr=temp
+            prev.next=curr
+        else:
+            prev=curr
+            curr=curr.next
+        n=n+1
+
+curr=head
+while curr:
+    print(curr.val)
+    curr=curr.next"""
