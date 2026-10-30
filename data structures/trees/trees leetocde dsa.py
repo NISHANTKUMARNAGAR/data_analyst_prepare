@@ -22,7 +22,7 @@ class Solution:
             maxd=finddepth(root) #root has 1 depth by default if it exists
         return maxd
 
-#find if its same tree or not meaing the nodes and their values are same or not:---------
+#find if its same tree or not meaning the nodes and their values are same or not:---------
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if p==None and q==None: #if both empty hence same
@@ -53,7 +53,7 @@ class Solution:
 
         return root
 
-#level order traversal,left to right:---------
+#level order traversal OR bfs traversal,left to right:---------
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         answer = []
@@ -80,11 +80,10 @@ class Solution:
             if (ul != None and node.val >= ul) or (ll != None and node.val <= ll):
                 return False
 
-            #keep parents ul,ll and use in children wherever necesarry and dont mix ul,ll in siblings
+            #keep parents ul,ll and use in children wherever necessary and don't mix ul,ll in siblings
             parentul = ul
             parentll = ll
-            if (node.left and check(node.left, ul := node.val, parentll) == False) or (
-                    node.right and check(node.right, parentul, ll := node.val) == False):
+            if (node.left and check(node.left, ul := node.val, parentll) == False) or (node.right and check(node.right, parentul, ll := node.val) == False):
                 # recursive call for left and right subtree
                 return False
 
